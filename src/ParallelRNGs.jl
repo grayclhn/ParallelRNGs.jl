@@ -1,5 +1,7 @@
 module ParallelRNGs
 
-# package code goes here
+export
+    replicate
 
+include("replicate.jl")
 end # module
