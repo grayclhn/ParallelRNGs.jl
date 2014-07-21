@@ -15,7 +15,11 @@ For discussion, see this thread on the Julia-Users mailing list:
 This package has almost nothing in it so far, and very little
 documentation (i.e., this is it!) Use it at your own risk. When you
 find errors, please file an issue on GitHub:
-<https://github.com/grayclhn/ParallelRNGs.jl/issues>
+<https://github.com/grayclhn/ParallelRNGs.jl/issues>.
+
+This package is only supported on Julia version 0.3.0 or higher, but
+may work on earlier versions. As of this writing, there is a release
+candidate of v0.3.0 and a supported release should be available soon.
 
 Example usage
 -------------
