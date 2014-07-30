@@ -18,14 +18,19 @@ srand(rngstate)
 ## Test basics of logging (i.e. that the code runs at all)
 logstem = tempname()
 a2 = replicate(identity, rand, 4, logstem=logstem)
+@test length(a2) == 4
+@test all(map(l -> isa(l, Float64), a2))
 
 ## Test whether RNG logging works
 srand(rngstate)
 rng = MersenneTwister(rngstate)
-a2 = replicate(identity, r->rand(r), 4, rng, logstem=logstem)
+a3 = replicate(identity, r->rand(r), 4, rng, logstem=logstem)
+@test length(a3) == 4
+@test all(map(l -> isa(l, Float64), a3))
+
 rngstream = open(logstem * ".rng", "r")
 rngrestored = deserialize(rngstream)
 close(rngstream)
 
-@test sort(a2) == sort(a)
+@test sort(a3) == sort(a)
 @test sort(rand(rng, 50)) == sort(rand(rngrestored, 50))
