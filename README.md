@@ -29,14 +29,14 @@ Example usage
 
 To generate 400 draws from the distribution of the maximum of 500
 independent Gaussian random variables:
-```
+```julia
 replicate(400) do
     maximum(randn(500))
 end
 ```
 
 The `replicate` code will give essentially identical results to the loop
-```
+```julia
 A = Array(Float64, 400)
 for i = 1:400
     A[i] = maximum(randn(500))
@@ -50,7 +50,7 @@ element.
 
 For more complicated statistics, we can provide a deterministic
 processing step. The same code as above can be written as
-```
+```julia
 replicate(maximum, ()->randn(500), 400)
 ```
 
